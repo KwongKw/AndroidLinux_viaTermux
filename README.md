@@ -51,7 +51,8 @@ pkg install proot-distro
 Listing the available distros and installation
 ```
 proot-distro list
-// Arch is installed in the project
+
+# Arch is installed in the project
 proot-distro install archlinux
 ```
 
@@ -69,29 +70,29 @@ pacman -Syu
 
 In default, we are root, it is better to add a sudo user
 ```
-// Change passwod of the root
+# Change passwod of the root
 passwd
 
-//add a user to the distro
+# add a user to the distro
 useradd -m -g users -G wheel,audio,video,storage {User_Name}
 passwd kwongkw
 
-//install the sudo package
+# install the sudo package
 pacman -S sudo
 
-//add the user to the distro
+# add the user to the distro
 vi /etc/sudoers
-/*
-Add sudo user by modifier the sudoers file
+
+: 'Add sudo user by modifier the sudoers file
 template:
 ...
 root ALL=(ALL:ALL) ALL
 {User_Name} ALL=(ALL:ALL) ALL
-*/
+'
 
-//login to the user
+Login to the user
 ```
-su kwongkw
+su {User_Name}
 ```
 
 ### Install the desktop environment
