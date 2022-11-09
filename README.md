@@ -1,4 +1,4 @@
-# AndroidLinux_viaTermux
+# AndroidLinux_viaTermux (Constructing~~)
 To perform a linux envornment under non-root android system via Termux
 
 ## Introduction
@@ -75,7 +75,7 @@ passwd
 
 # add a user to the distro
 useradd -m -g users -G wheel,audio,video,storage {User_Name}
-passwd kwongkw
+passwd {User_Name}
 
 # install the sudo package
 pacman -S sudo
