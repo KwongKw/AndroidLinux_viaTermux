@@ -80,15 +80,16 @@ passwd kwongkw
 # install the sudo package
 pacman -S sudo
 
-# add the user to the distro
+# Modifying the sudoers file
 vi /etc/sudoers
-
-: 'Add sudo user by modifier the sudoers file
+```
+Add sudo user by modifying the sudoers file
 template:
+```{bash}
 ...
 root ALL=(ALL:ALL) ALL
 {User_Name} ALL=(ALL:ALL) ALL
-'
+...
 ```
 
 Login to the user
