@@ -25,13 +25,81 @@ Samsung Tab S7 (SM-T870), Android 12
 
 ## Procedures
 
-### Installing the envornmnt
+### Setting up Termux
 
 Get Termux from F-droid or Github release (__Not from Play Store__)
 
 Provide the access permission of the storage space to termux
-`termux-setup-storage`
+```
+termux-setup-storage
+```
 
 Update packages to latest version
-`pkg update`
+```
+pkg update
+```
 
+If the device is in Android 12 or above, the Phantom Proceessing Killing must be disabled.
+
+### Installing the Proot Environment
+
+Install Proot-distro
+```
+pkg install proot-distro
+```
+
+Listing the available distros and installation
+```
+proot-distro list
+// Arch is installed in the project
+proot-distro install archlinux
+```
+
+Login to the distro after installation
+```
+proot-distro login archlinux
+```
+
+### Basic configuration in the distro (Arch)
+
+Update the packages
+```
+pacman -Syu
+```
+
+In default, we are root, it is better to add a sudo user
+```
+// Change passwod of the root
+passwd
+
+//add a user to the distro
+useradd -m -g users -G wheel,audio,video,storage {User_Name}
+passwd kwongkw
+
+//install the sudo package
+pacman -S sudo
+
+//add the user to the distro
+vi /etc/sudoers
+/*
+Add sudo user by modifier the sudoers file
+template:
+...
+root ALL=(ALL:ALL) ALL
+{User_Name} ALL=(ALL:ALL) ALL
+*/
+
+//login to the user
+```
+su kwongkw
+```
+
+### Install the desktop environment
+
+Install XFCE desktop environment
+```
+sudo pacman -S xfce4 xfce4-goodies lightdm
+```
+
+### VNC
+### Termux-x11
